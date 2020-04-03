@@ -38,9 +38,11 @@ module.exports = {
                 ong_id
             });
 
-            return response.json({ tudo });
+            return response.json({ rowCount });
         } catch(error) {
             console.log("Erro ao salvar incidente. " + error);
+
+            return;
         }
     },
 
