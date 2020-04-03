@@ -31,14 +31,18 @@ module.exports = {
 
             const ong_id = request.headers.authorization;
 
-            const [id] = await connection('incidents').insert({
+            console.log("antes do insert");
+            
+            const tudo = await connection('incidents').insert({
                 title,
                 description,
                 value,
                 ong_id
             });
 
-            return response.json({ id });
+            console.log("depois do insert");
+
+            return response.json({ tudo });
         } catch(error) {
             console.log("Erro ao salvar incidente. " + error);
         }
@@ -57,4 +61,4 @@ module.exports = {
     
         return response.status(204).send();
     },
-}
+};
