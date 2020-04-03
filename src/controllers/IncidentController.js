@@ -31,16 +31,12 @@ module.exports = {
 
             const ong_id = request.headers.authorization;
 
-            console.log("antes do insert");
-            
-            const tudo = await connection('incidents').insert({
+            const {rowCount} = await connection('incidents').insert({
                 title,
                 description,
                 value,
                 ong_id
             });
-
-            console.log("depois do insert");
 
             return response.json({ tudo });
         } catch(error) {
