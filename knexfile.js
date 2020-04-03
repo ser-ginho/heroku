@@ -3,9 +3,12 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './src/database/db.sqlite'
+      host: "ec2-3-211-48-92.compute-1.amazonaws.com",
+      database: 'df1efnd0tqcrtj',
+      user:     'krkmsujeytojgz',
+      password: 'e1167f2c8aad458611e8c370e308598111754c2371b240f52ea676b6a61acaa4'
     },
     migrations:{
       directory:'./src/database/migrations'
@@ -43,16 +46,17 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      host: "ec2-3-211-48-92.compute-1.amazonaws.com",
+      database: 'df1efnd0tqcrtj',
+      user:     'krkmsujeytojgz',
+      password: 'e1167f2c8aad458611e8c370e308598111754c2371b240f52ea676b6a61acaa4'
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory:'./src/database/migrations'
     }
   }
 
