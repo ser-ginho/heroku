@@ -6,6 +6,8 @@ module.exports = {
     async index(request, response) {
         const {page = 1} = request.query;
 
+        const ong_id = request.headers.authorization
+
         const [count] = await connection('incidents').count();
 
         const incidents = await connection('incidents')
@@ -19,7 +21,7 @@ module.exports = {
                 'ongs.whatsapp', 
                 'ongs.city',
                 'ongs.uf'
-            ]);
+            ]).where('ongs.id', ong_id);
         
         response.header('X-Total-Count', count['count(*)']);
         return response.json(incidents);
